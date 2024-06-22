@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./home-3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="home-3">
+      <div class="container">
+        <div class="container1">
+          <div class="container2">
+            <div class="container3">
+              <div class="container4">
+                <div class="hi-smile-foundation">Hi Smile Foundation</div>
+                <div class="container-child"></div>
+              </div>
+              <div class="image-9-wrapper">
+                <img
+                  class="image-9-icon"
+                  loading="lazy"
+                  alt=""
+                  src="./public/image-9@2x.png"
+                />
+              </div>
+            </div>
+            <div class="you-are-a-receiver-parent">
+              <h2 class="you-are-a-container">
+                <span>You are a </span>
+                <b>Receiver</b>
+              </h2>
+              <img
+                class="image-4-icon"
+                loading="lazy"
+                alt=""
+                src="./public/image-4@2x.png"
+              />
+            </div>
+          </div>
+          <div class="content-area">
+            <div class="posts-container">
+              <div class="twemojiheavy-plus-sign-wrapper">
+                <img
+                  class="twemojiheavy-plus-sign-icon"
+                  loading="lazy"
+                  alt=""
+                  src="./public/twemojiheavyplussign.svg"
+                />
+              </div>
+              <div class="user-posts-parent">
+                <div class="user-posts">
+                  <div class="my-post-parent">
+                    <div class="my-post">My Post</div>
+                    <div class="post-separator"></div>
+                  </div>
+                  <div class="donners-posts-parent">
+                    <input
+                      class="donners-posts"
+                      placeholder="Donner's Posts"
+                      type="text"
+                    />
+
+                    <div class="donner-separator"></div>
+                  </div>
+                </div>
+                <div class="rectangle-parent7">
+                  <div class="frame-child10"></div>
+                  <div class="request-separator-wrapper">
+                    <div class="request-separator"></div>
+                  </div>
+                  <div class="food-request">
+                    <div class="do-you-required-food-wrapper">
+                      <div class="do-you-required">Do you required food?</div>
+                    </div>
+                    <button class="food-request-button-parent">
+                      <div
+                        class="food-request-button"
+                        id="foodRequestButton"
+                      ></div>
+                      <div class="create-food-request">Create Food Request</div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-inner">
+          <img
+            class="line-icon"
+            loading="lazy"
+            alt=""
+            src="./public/line-15.svg"
+          />
+        </div>
+      </div>
+      <div class="vector-frame">
+        <img class="vector-icon1" alt="" />
+      </div>
+    </div>
+
+    <script>
+      var foodRequestButton = document.getElementById("foodRequestButton");
+      if (foodRequestButton) {
+        foodRequestButton.addEventListener("click", function (e) {
+          window.location.href = "./confirmation.html";
+        });
+      }
+      </script>
+  </body>
+</html>

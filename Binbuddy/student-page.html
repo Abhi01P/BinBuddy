@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's Menu</title>
+    <link rel="stylesheet" href="student-page.css">
+</head>
+<body>
+    <h1>Today's Menu</h1>
+    
+    <div class="container">
+        <div id="menu">
+            <p><strong>Breakfast:</strong> <span id="displayBreakfast"></span></p>
+            <p><strong>Lunch:</strong> <span id="displayLunch"></span></p>
+            <p><strong>Dinner:</strong> <span id="displayDinner"></span></p>
+        </div>
+        <div class="section">
+            <h3>Scan QR Codes</h3>
+            <div id="my-qr-reader">
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="student-page.js"></script>
+</body>
+</html>
