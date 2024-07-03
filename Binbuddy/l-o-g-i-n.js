@@ -1,33 +1,47 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
-const PORT = process.env.PORT || 3000;
+async function handleLogin(event) {
+  event.preventDefault();
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
 
+  try {
+      const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, password })
+      });
 
-const user = {
-  email: 'user@example.com',
-  password: 'password123'
-};
+      if (!response.ok) {
+          throw new Error('Login failed: ' + response.statusText);
+      }
 
+      const result = await response.json();
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+      if (result.success) {
+          const role = result.role;
+          let redirectUrl = '';
 
-s
-app.use(express.static('public'));
+          switch(role) {
+              case 'student':
+                  redirectUrl = "student-page.html";
+                  break;
+              case 'mess':
+                  redirectUrl = '/mess/home';
+                  break;
+              case 'ngo':
+                  redirectUrl = "ngo-page.html";
+                  break;
+              default:
+                  throw new Error('Unknown role');
+          }
 
-
-app.post('/login', (req, res) => {
-  const { email, password } = req.body;
-
-  if (email === user.email && password === user.password) {
-
-    return res.redirect('/h-o-m-e.html');
-  } else {
-    return res.status(401).send('Invalid email or password');
+          window.location.href = redirectUrl;
+      } else {
+          alert('Login failed');
+      }
+  } catch (error) {
+      console.error('Error:', error);
+      alert(error.message);
   }
-});
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+}

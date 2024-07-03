@@ -6,9 +6,9 @@ const continueButton = document.getElementById('continue-button');
 
 // Define the redirect URLs for each icon
 const redirectUrls = {
-  'svgStudent': 'student-page.html',
-  'svgMess': 'mess-page.html',
-  'svgNgo': 'ngo-page.html',
+  'svgStudent': 'student-info.html',
+  'svgMess': 'mess-info.html',
+  'svgNgo': 'ngo-info.html',
 };
 
 // Helper function to handle icon clicks

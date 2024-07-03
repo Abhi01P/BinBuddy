@@ -1,81 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="initial-scale=1, width=device-width" />
-
-  <link rel="stylesheet" href="./global-1.css" />
-  <link rel="stylesheet" href="./l-o-g-i-n.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar:wght@400&display=swap" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./l-o-g-i-n.css">
 </head>
 <body>
-  <div class="log-in1">
-    <div class="log-in-child"></div>
-    <div class="wrapper-ellipse-1-parent">
-      <div class="wrapper-ellipse-1">
-        <img class="wrapper-ellipse-1-child" loading="lazy" alt="" />
-      </div>
-      <div class="wrapper-ellipse-21">
-        <img class="wrapper-ellipse-2-item" alt="" src="./public/ellipse-2@2x.png" />
-      </div>
-    </div>
-    <section class="login-form">
-      <div class="login-form-child"></div>
-      <h3 class="e-mail1">E-MAIL</h3>
-      <div class="log-in-container">
-        <h1 class="log-in2">LOG IN</h1>
-      </div>
-      <form action="/login" method="POST" class="password-input">
-        <div class="rectangle-container">
-          <div class="frame-inner"></div>
-          <div class="password-wrapper">
-            <h3 class="password">PASSWORD</h3>
-          </div>
-          <div class="show-password">
-            <div class="eye-button-parent">
-              <div class="eye-button">
-                <div class="eye-button-child"></div>
-                <img class="eye-icon1" alt="" src="./public/eye@2x.png" />
-              </div>
-              <div class="forgot-password-wrapper">
-                <div class="forgot-password">forgot password ?</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="login-button-wrapper">
-          <div class="login-button">
-            <div class="login-background"></div>
-            <div class="log-in-frame">
-              <h1 class="log-in3">LOG IN</h1>
-            </div>
-          </div>
-        </div>
-        <div class="password-input-inner">
-          <div class="frame-group">
-            <div class="new-user-wrapper">
-              <div class="new-user">New user ?<a href="role-index.html">Sign up</a>!</div>
-            </div>
-            <div class="frame-container">
-              <div class="wrapper-rectangle-9-wrapper">
-                <div class="wrapper-rectangle-91">
-                  <img class="wrapper-rectangle-9-item" loading="lazy" alt="" src="./public/rectangle-9@2x.png" />
-                </div>
-              </div>
-              <div class="wrapper-rectangle-7-wrapper">
-                <div class="wrapper-rectangle-71">
-                  <img class="wrapper-rectangle-7-item" loading="lazy" alt="" src="./public/rectangle-7@2x.png" />
-                </div>
-              </div>
-              <div class="wrapper-rectangle-81">
-                <img class="wrapper-rectangle-8-item" loading="lazy" alt="" src="./public/rectangle-8@2x.png" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-    </section>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="handleLogin(event)">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Login</button>
+    </form>
   </div>
+<script src="./l-o-g-i-n.js"></script>
 </body>
 </html>

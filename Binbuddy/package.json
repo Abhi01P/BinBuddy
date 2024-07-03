@@ -1,7 +1,7 @@
 {
   "name": "locofy-html-css-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Note: Please ensure you have installed <code><a href=\"https://nodejs.org/en/download/\">nodejs</a></code>",
   "scripts": {
     "start": "parcel ./*.html ",
     "build": "parcel build ./*.html  --dist-dir ./build"
@@ -10,5 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "parcel": "^2.7.0"
-  }
+  },
+  "main": "about.js",
+  "keywords": []
 }

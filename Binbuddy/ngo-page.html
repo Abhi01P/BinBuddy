@@ -16,127 +16,106 @@
     />
   </head>
   <body>
-    <div class="receiver-details-2">
-      <img
-        class="receiver-details-2-child"
-        loading="lazy"
-        alt=""
-        src="./public/arrow-2.svg"
-      />
-
-      <form class="frame-group" id="receiverForm" action="/submit" method="POST">
-        <div class="receiver-details-parent">
-          <a class="receiver-details">Receiver Details</a>
-          <div class="frame-div">
-            <div class="rectangle-parent1">
-              <div class="frame-child1"></div>
-              <div class="vector-wrapper">
+    <div class="home-3">
+      <div class="container">
+        <div class="container1">
+          <div class="container2">
+            <div class="container3">
+              <div class="container4">
+                <div class="hi-smile-foundation">Hi Smile Foundation</div>
+                <div class="container-child"></div>
+              </div>
+              <div class="image-9-wrapper">
                 <img
-                  class="vector-icon"
+                  class="image-9-icon"
                   loading="lazy"
                   alt=""
-                  src="./public/vector.svg"
+                  src="./public/image-9@2x.png"
                 />
               </div>
-              <div class="ngo-wrapper">
-                <div class="ngo">NGO</div>
-              </div>
             </div>
-            <div class="group-div">
-              <div class="frame-child2"></div>
-              <input
-                class="receiver-name"
-                placeholder="Receiver Name"
-                type="text"
-                name="receiverName"
-                required
+            <div class="you-are-a-receiver-parent">
+              <h2 class="you-are-a-container">
+                <span>You are a </span>
+                <b>Receiver</b>
+              </h2>
+              <img
+                class="image-4-icon"
+                loading="lazy"
+                alt=""
+                src="./public/image-4@2x.png"
               />
             </div>
           </div>
-        </div>
-        <div class="contact-info-parent">
-          <div class="contact-info">
-            <div class="rectangle-parent2">
-              <div class="frame-child3"></div>
-              <input
-                class="contact-name-optional"
-                placeholder="Contact Name (Optional)"
-                type="text"
-                name="contactName"
-              />
-            </div>
-            <div class="contact-details">
-              <div class="rectangle-parent3">
-                <div class="frame-child4"></div>
-                <div class="placeholder">+91</div>
-                <div class="vector-container">
-                  <img
-                    class="frame-child5"
-                    alt=""
-                    src="./public/vector-25.svg"
-                  />
+          <div class="content-area">
+            <div class="posts-container">
+              <div class="twemojiheavy-plus-sign-wrapper">
+                <img
+                  class="twemojiheavy-plus-sign-icon"
+                  loading="lazy"
+                  alt=""
+                  src="./public/twemojiheavyplussign.svg"
+                />
+              </div>
+              <div class="user-posts-parent">
+                <div class="user-posts">
+                  <div class="my-post-parent">
+                    <div class="my-post">My Post</div>
+                    <div class="post-separator"></div>
+                  </div>
+                  <div class="donners-posts-parent">
+                    <input
+                      class="donners-posts"
+                      placeholder="Donner's Posts"
+                      type="text"
+                    />
+
+                    <div class="donner-separator"></div>
+                  </div>
+                </div>
+                <div class="rectangle-parent7">
+                  <div class="frame-child10"></div>
+                  <div class="request-separator-wrapper">
+                    <div class="request-separator"></div>
+                  </div>
+                  <div class="food-request">
+                    <div class="do-you-required-food-wrapper">
+                      <div class="do-you-required">Do you required food?</div>
+                    </div>
+                    <button class="food-request-button-parent">
+                      <div
+                        class="food-request-button"
+                        id="foodRequestButton"
+                      ></div>
+                      <div class="create-food-request">Create Food Request</div>
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div class="rectangle-parent4">
-                <div class="frame-child6"></div>
-                <input
-                  class="mobile-number"
-                  placeholder="Mobile Number"
-                  type="text"
-                  name="mobileNumber"
-                  required
-                />
-              </div>
-            </div>
-            <div class="rectangle-parent5">
-              <div class="frame-child7"></div>
-              <input
-                class="email-id"
-                placeholder="Email Id"
-                type="email"
-                name="emailId"
-                required
-              />
-            </div>
-          </div>
-          <div class="address-info">
-            <div class="address-info-inner">
-              <div class="line-div"></div>
-            </div>
-            <div class="address-fields">
-              <div class="location">
-                <div class="location-child"></div>
-                <input
-                  class="address"
-                  placeholder="Address"
-                  type="text"
-                  name="address"
-                  required
-                />
-              </div>
-              <div class="location1">
-                <div class="location-item"></div>
-                <input
-                  class="pin-code"
-                  placeholder="Pin Code"
-                  type="text"
-                  name="pinCode"
-                  required
-                />
-              </div>
-              <div class="location2">
-                <div class="location-inner"></div>
-                <input class="city" placeholder="City" type="text" name="city" required />
-              </div>
             </div>
           </div>
         </div>
-        <button class="group-button" id="groupButton">
-          <div class="frame-child8"></div>
-          <b class="submit">Submit</b>
-        </button>
-      </form>
+        <div class="container-inner">
+          <img
+            class="line-icon"
+            loading="lazy"
+            alt=""
+            src="./public/line-15.svg"
+          />
+        </div>
+      </div>
+      <div class="vector-frame">
+        <img class="vector-icon1" alt="" />
+      </div>
     </div>
+
+    <script>
+      var foodRequestButton = document.getElementById("foodRequestButton");
+      if (foodRequestButton) {
+        foodRequestButton.addEventListener("click", function (e) {
+          window.location.href = "./confirmation.html";
+        });
+      }
+      </script>
   </body>
 </html>
-/
