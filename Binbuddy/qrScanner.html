@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner</title>
+    <script src="https://cdn.jsdelivr.net/npm/@zxing/library@0.18.5"></script>
+</head>
+<body>
+    <h2>Mess QR Code Scanner</h2>
+    <div>
+        <video id="video" width="300" height="200"></video>
+    </div>
+    <script>
+        async function scanQrCode() {
+            const codeReader = new ZXing.BrowserQRCodeReader();
+            const videoInputDevices = await codeReader.getVideoInputDevices();
+
+            if (videoInputDevices.length === 0) {
+                console.error('No video input devices found');
+                alert('No video input devices found');
+                return;
+            }
+
+            // Use the first available video input device
+            codeReader.decodeFromVideoDevice(videoInputDevices[0].deviceId, 'video', (result, err) => {
+                if (result) {
+                    console.log('QR Code detected:', result.text);
+                    handleQrCodeResult(result.text);
+                    codeReader.reset();
+                }
+                if (err && !(err instanceof ZXing.NotFoundException)) {
+                    console.error('QR Code scan error:', err);
+                }
+            });
+        }
+
+        async function handleQrCodeResult(qrData) {
+            // Parse the QR data (assumes the data is in JSON format)
+            let data;
+            try {
+                data = JSON.parse(qrData);
+                console.log('Parsed QR data:', data);
+            } catch (error) {
+                console.error('Error parsing QR data:', error);
+                alert('Invalid QR code format');
+                scanQrCode(); // Reopen the scanner
+                return;
+            }
+        
+            const email = data.email;
+            const messId = data.mess;
+            const hostel = data.hostel
+        
+            // Send the data to the server for verification and credit deduction
+            try {
+                const response = await fetch('/api/scanQrCode', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, messId, hostel })
+                });
+        
+                const responseData = await response.json();
+                console.log('Server response:', responseData);
+                if (response.ok) {
+                    alert(`Credits deducted successfully. Remaining credits: ${responseData.remainingCredits}`);
+                } else {
+                    alert(`Error: ${responseData.message}`);
+                }
+            } catch (error) {
+                console.error('Error processing QR code scan:', error);
+                alert('Error processing QR code scan');
+            } finally {
+                // Reopen the scanner
+                scanQrCode();
+            }
+        }        
+
+        window.onload = scanQrCode;
+    </script>
+</body>
+</html>

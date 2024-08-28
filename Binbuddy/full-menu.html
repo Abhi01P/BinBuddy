@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Menu</title>
+    <link rel="stylesheet" href="student-page.css">
+</head>
+<body>
+    <header>
+        <h1>Full Menu</h1>
+    </header>
+    <main>
+        <section id="full-menu">
+            <!-- Full menu content will be populated by JavaScript -->
+        </section>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', loadFullMenu);
+
+    function loadFullMenu() {
+        fetch('/api/full-menu')
+            .then(response => response.json())
+            .then(data => {
+                const fullMenuSection = document.getElementById('full-menu');
+                for (const [day, meals] of Object.entries(data)) {
+                    const daySection = document.createElement('section');
+                    daySection.className = 'day-menu';
+                    daySection.innerHTML = `
+                        <h2>${day.charAt(0).toUpperCase() + day.slice(1)}</h2>
+                        <div class="meal">
+                            <h3>Breakfast</h3>
+                            <p>${meals.breakfast}</p>
+                        </div>
+                        <div class="meal">
+                            <h3>Lunch</h3>
+                            <p>${meals.lunch}</p>
+                        </div>
+                        <div class="meal">
+                            <h3>Dinner</h3>
+                            <p>${meals.dinner}</p>
+                        </div>
+                    `;
+                    fullMenuSection.appendChild(daySection);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching full menu:', error);
+            });
+    }
+    </script>
+</body>
+</html>

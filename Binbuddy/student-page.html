@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Homepage</title>
+    <link rel="stylesheet" href="student-page.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome, <span id="welcome-message"></span></h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="loadTodayMenu()">Today's Menu</a></li>
+            <li><a href="full-menu.html">Full Menu</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="today-menu">
+            <h2><span id="currentDay"></span>'s Menu</h2>
+            <div class="meal">
+                <h3>Breakfast (<span id="breakfast-timing">Loading...</span>)</h3>
+                <p id="breakfast-details">Loading...</p>
+            </div>
+            <div class="meal">
+                <h3>Lunch (<span id="lunch-timing">Loading...</span>)</h3>               
+                <p id="lunch-details">Loading...</p>
+            </div>
+            <div class="meal">
+                <h3>Dinner (<span id="dinner-timing">Loading...</span>)</h3>               
+                <p id="dinner-details">Loading...</p>
+            </div>
+        </section>
+    </main>
+    <div class="hover-button">
+        <button class="hover-main" onclick="toggleMenu()">More</button>
+        <div class="hover-content" id="hover-content">
+            <a href="student-qr.html">Show your QR</a>
+            <a href="student-notifications.html">Alerts</a>
+            <a href="#" onclick="showProfileModal()">Your Profile</a>
+            <a href="payment-page.html">Payment</a>
+        </div>
+    </div>
+
+    <div id="profile-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProfileModal()">&times;</span>
+            <h2>Profile</h2>
+            <div class="profile-detail">
+                <label>Name: </label>
+                <span id="profile-name"></span>
+            </div>
+            <div class="profile-detail">
+                <label>Email: </label>
+                <span id="profile-email-text"></span>
+                <input type="email" id="profile-email-input" style="display:none;">
+                <button onclick="editField('profile-email')">Edit</button>
+                <button id="save-profile-email" onclick="saveProfile('email')" style="display:none;">Save</button>
+            </div>
+            <div class="profile-detail">
+                <label>Phone: </label>
+                <span id="profile-phone-text"></span>
+                <input type="tel" id="profile-phone-input" style="display:none;">
+                <button onclick="editField('profile-phone')">Edit</button>
+                <button id="save-profile-phone" onclick="saveProfile('phone')" style="display:none;">Save</button>
+            </div>
+            <div class="profile-detail">
+                <label>Hostel: </label>
+                <span id="profile-hostel-text"></span>
+                <select id="profile-hostel-input" style="display:none;">
+                    <option value="">Select</option>
+                    <option value="kalaam">A.P.J kalaam</option>
+                    <option value="asima">Asima</option>
+                    <option value="cvr">C.V.R</option>
+                    <option value="aryabhatta">Aryabhatta</option>
+                </select>
+                <button onclick="editField('profile-hostel')">Edit</button>
+                <button id="save-profile-hostel" onclick="saveProfile('hostel')" style="display:none;">Save</button>
+            </div>
+            <div class="profile-detail">
+                <label>Mess: </label>
+                <span id="profile-mess-text"></span>
+                <select id="profile-mess-input" style="display:none;">
+                    <option value="">Select</option>
+                    <option value="mess1">Mess 1</option>
+                    <option value="mess2">Mess 2</option>
+                </select>
+                <button onclick="editField('profile-mess')">Edit</button>
+                <button id="save-profile-mess" onclick="saveProfile('mess')" style="display:none;">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="student-page.js"></script>
+</body>
+</html>

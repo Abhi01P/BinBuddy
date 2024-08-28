@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mess Menu and Timing Input</title>
+    <style>
+        .hidden { display: none; }
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #menuButton, #timingButton {
+            margin: 10px;
+        }
+
+        .form-container {
+            width: 60%;
+            margin: 0 auto;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+
+        .form-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .form-table th, .form-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .form-table th {
+            background-color: #f2f2f2;
+        }
+
+        .form-table td input[type="text"],
+        .form-table td input[type="time"] {
+            width: 90%;
+            padding: 5px;
+        }
+
+        button[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mess Management</h1>
+    <button id="menuButton">Fill Menu</button>
+    <button id="timingButton">Fill Timing</button>
+
+    <div id="menuFormDiv">
+        <h2>Mess Menu Input</h2>
+        <form id="menuForm" action="/submit-menu" method="POST">
+            <h3>Monday</h3>
+            Breakfast: <input type="text" name="days[monday][breakfast]" required><br>
+            Lunch: <input type="text" name="days[monday][lunch]" required><br>
+            Dinner: <input type="text" name="days[monday][dinner]" required><br>
+
+            <h3>Tuesday</h3>
+            Breakfast: <input type="text" name="days[tuesday][breakfast]" required><br>
+            Lunch: <input type="text" name="days[tuesday][lunch]" required><br>
+            Dinner: <input type="text" name="days[tuesday][dinner]" required><br>
+            
+            <h3>Wednesday</h3>
+            Breakfast: <input type="text" name="days[wednesday][breakfast]" required><br>
+            Lunch: <input type="text" name="days[wednesday][lunch]" required><br>
+            Dinner: <input type="text" name="days[wednesday][dinner]" required><br>
+            
+            <h3>Thursday</h3>
+            Breakfast: <input type="text" name="days[thursday][breakfast]" required><br>
+            Lunch: <input type="text" name="days[thursday][lunch]" required><br>
+            Dinner: <input type="text" name="days[thursday][dinner]" required><br>
+            
+            <h3>Friday</h3>
+            Breakfast: <input type="text" name="days[friday][breakfast]" required><br>
+            Lunch: <input type="text" name="days[friday][lunch]" required><br>
+            Dinner: <input type="text" name="days[friday][dinner]" required><br>
+            
+            <h3>Saturday</h3>
+            Breakfast: <input type="text" name="days[saturday][breakfast]" required><br>
+            Lunch: <input type="text" name="days[saturday][lunch]" required><br>
+            Dinner: <input type="text" name="days[saturday][dinner]" required><br>
+            
+            <h3>Sunday</h3>
+            Breakfast: <input type="text" name="days[sunday][breakfast]" required><br>
+            Lunch: <input type="text" name="days[sunday][lunch]" required><br>
+            Dinner: <input type="text" name="days[sunday][dinner]" required><br>
+
+            <button type="submit">Submit Menu</button>
+        </form>
+    </div>
+
+    <div id="timingFormDiv" class="hidden">
+        <h2>Mess Timing Input</h2>
+        <form id="timingForm" action="/submit-timing" method="POST">
+
+            <h3>Monday</h3>
+            Breakfast: <input type="time" name="days[monday][breakfastStart]" required> to <input type="time" name="days[monday][breakfastEnd]" required><br>
+            Lunch: <input type="time" name="days[monday][lunchStart]" required> to <input type="time" name="days[monday][lunchEnd]" required><br>
+            Dinner: <input type="time" name="days[monday][dinnerStart]" required> to <input type="time" name="days[monday][dinnerEnd]" required><br>
+
+            <h3>Tuesday</h3>
+            Breakfast: <input type="time" name="days[tuesday][breakfastStart]" required> to <input type="time" name="days[tuesday][breakfastEnd]" required><br>
+            Lunch: <input type="time" name="days[tuesday][lunchStart]" required> to <input type="time" name="days[tuesday][lunchEnd]" required><br>
+            Dinner: <input type="time" name="days[tuesday][dinnerStart]" required> to <input type="time" name="days[tuesday][dinnerEnd]" required><br>
+            
+            <h3>Wednesday</h3>
+            Breakfast: <input type="time" name="days[wednesday][breakfastStart]" required> to <input type="time" name="days[wednesday][breakfastEnd]" required><br>
+            Lunch: <input type="time" name="days[wednesday][lunchStart]" required> to <input type="time" name="days[wednesday][lunchEnd]" required><br>
+            Dinner: <input type="time" name="days[wednesday][dinnerStart]" required> to <input type="time" name="days[wednesday][dinnerEnd]" required><br>
+            
+            <h3>Thursday</h3>
+            Breakfast: <input type="time" name="days[thursday][breakfastStart]" required> to <input type="time" name="days[thursday][breakfastEnd]" required><br>
+            Lunch: <input type="time" name="days[thursday][lunchStart]" required> to <input type="time" name="days[thursday][lunchEnd]" required><br>
+            Dinner: <input type="time" name="days[thursday][dinnerStart]" required> to <input type="time" name="days[thursday][dinnerEnd]" required><br>
+            
+            <h3>Friday</h3>
+            Breakfast: <input type="time" name="days[friday][breakfastStart]" required> to <input type="time" name="days[friday][breakfastEnd]" required><br>
+            Lunch: <input type="time" name="days[friday][lunchStart]" required> to <input type="time" name="days[friday][lunchEnd]" required><br>
+            Dinner: <input type="time" name="days[friday][dinnerStart]" required> to <input type="time" name="days[friday][dinnerEnd]" required><br>
+            
+            <h3>Saturday</h3>
+            Breakfast: <input type="time" name="days[saturday][breakfastStart]" required> to <input type="time" name="days[saturday][breakfastEnd]" required><br>
+            Lunch: <input type="time" name="days[saturday][lunchStart]" required> to <input type="time" name="days[saturday][lunchEnd]" required><br>
+            Dinner: <input type="time" name="days[saturday][dinnerStart]" required> to <input type="time" name="days[saturday][dinnerEnd]" required><br>
+            
+            <h3>Sunday</h3>
+            Breakfast: <input type="time" name="days[sunday][breakfastStart]" required> to <input type="time" name="days[sunday][breakfastEnd]" required><br>
+            Lunch: <input type="time" name="days[sunday][lunchStart]" required> to <input type="time" name="days[sunday][lunchEnd]" required><br>
+            Dinner: <input type="time" name="days[sunday][dinnerStart]" required> to <input type="time" name="days[sunday][dinnerEnd]" required><br>
+
+            <button type="submit">Submit Timing</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('menuButton').addEventListener('click', () => {
+            document.getElementById('menuFormDiv').classList.remove('hidden');
+            document.getElementById('timingFormDiv').classList.add('hidden');
+        });
+
+        document.getElementById('timingButton').addEventListener('click', () => {
+            document.getElementById('menuFormDiv').classList.add('hidden');
+            document.getElementById('timingFormDiv').classList.remove('hidden');
+        });
+
+    </script>
+</body>
+</html>

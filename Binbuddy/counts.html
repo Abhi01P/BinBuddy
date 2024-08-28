@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Counts</title>
+</head>
+<body>
+    <h1>Meal Counts</h1>
+
+    <div id="counts">
+        <h2>Breakfast</h2>
+        <p>Accepted: <span id="breakfast-accepted"></span></p>
+        <p>Denied: <span id="breakfast-denied"></span></p>
+
+        <h2>Lunch</h2>
+        <p>Accepted: <span id="lunch-accepted"></span></p>
+        <p>Denied: <span id="lunch-denied"></span></p>
+
+        <h2>Dinner</h2>
+        <p>Accepted: <span id="dinner-accepted"></span></p>
+        <p>Denied: <span id="dinner-denied"></span></p>
+    </div>
+
+    <script>
+        async function loadCounts() {
+            const response = await fetch('/api/meal-counts');
+            const data = await response.json();
+
+            document.getElementById('breakfast-accepted').textContent = data.breakfast.accepted;
+            document.getElementById('breakfast-denied').textContent = data.breakfast.denied;
+
+            document.getElementById('lunch-accepted').textContent = data.lunch.accepted;
+            document.getElementById('lunch-denied').textContent = data.lunch.denied;
+
+            document.getElementById('dinner-accepted').textContent = data.dinner.accepted;
+            document.getElementById('dinner-denied').textContent = data.dinner.denied;
+        }
+
+        loadCounts();
+    </script>
+</body>
+</html>

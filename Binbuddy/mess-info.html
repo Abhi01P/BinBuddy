@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mess Information Form</title>
+    <link rel="stylesheet" href="./mess-info.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Enter Mess Info.</h2>
+    <form action="/submit-mess" method="post" onsubmit="submitForm(event)">
+        <label for="name">Organisation name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="hostel">Hostel</label>
+        <select id="hostel" name="hostel" required>
+            <option value="">Select</option>
+            <option value="kalaam">A.P.J kalaam</option>
+            <option value="asima">Asima</option>
+            <option value="cvr">C.V.R</option>
+            <option value="aryabhatta">Aryabhatta</option>
+        </select>
+
+        <label for="mess">Mess Id</label>
+        <select id="mess" name="mess" required>
+            <option value="">Select</option>
+            <option value="mess1">Mess 1</option>
+            <option value="mess2">Mess 2</option>
+        </select>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="upiId">UPI Id</label>
+        <input type="text" id="upiId" name="upiId" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="mealCost">Meal Cost</label>
+        <input type="mealCost" id="mealCost" name="mealCost" required>
+
+        <button id="submit" type="submit">Submit</button>
+    </form>
+</div>
+
+<script src="./mess-info.js"></script>
+
+</body>
+</html>

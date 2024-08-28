@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mess Homepage</title>
+    <link rel="stylesheet" href="mess-page.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome, Mess Staff</h1>
+    </header>
+    <div class="navbar">
+        <ul>
+            <li><a href="menu.html">Input Menu</a></li>
+            <li><a href="qrScanner.html">QR Scanner</a></li>
+            <li><a href="counts.html">Counts</a></li>
+            <li><a href="#">Requests</a></li>
+        </ul>
+    </div>
+    <main>
+        <section id="mess-info">
+            <h2>Mess Information</h2>
+            <p>Details about the mess...</p>
+        </section>
+    </main>
+    <div class="hover-button">
+        <button class="hover-main" onclick="toggleMenu()">Menu</button>
+        <div class="hover-content" id="hover-content">
+            <a href="menu.html">Input Menu</a>
+            <a href="qrScanner.html">QR Scanner</a>
+            <a href="#">Counts</a>
+            <a href="#">Requests</a>
+        </div>
+    </div>
+    <script src="mess-page.js"></script>
+</body>
+</html>
+
